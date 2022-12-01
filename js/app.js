@@ -5,6 +5,10 @@ const coffees = [
     image: "images/logo.png"
   }
 ];
+let deferredPrompt;
+const addBtn = document.querySelector(".add-button");
+addBtn.style.display = "none";
+
 const showCoffees = () => {
   let output = "";
   coffees.forEach(
@@ -31,9 +35,6 @@ if ("serviceWorker" in navigator) {
   });
 }
 
-let deferredPrompt;
-const addBtn = document.querySelector(".add-button");
-addBtn.style.display = "none";
 
 window.addEventListener("beforeinstallprompt", (e) => {
   e.preventDefault();
