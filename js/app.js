@@ -6,11 +6,6 @@ const coffees = [
   }
 ];
 
-let deferredPrompt;
-window.addEventListener('beforeinstallprompt', (e) => {
-  $('.install-app-btn-container').show();
-  deferredPrompt = e;
-});
 const installApp = document.getElementById('install-id');
 
 const showCoffees = () => {
@@ -26,6 +21,12 @@ const showCoffees = () => {
   );
   container.innerHTML = output;
 };
+
+let deferredPrompt;
+window.addEventListener('beforeinstallprompt', (e) => {
+  $('.install-app-btn-container').show();
+  deferredPrompt = e;
+});
 
 installApp.addEventListener('click', async () => {
     if (deferredPrompt !== null) {
