@@ -16,7 +16,7 @@ test.addEventListener("install", installEvent => {
   );
 });
 
-self.addEventListener("fetch", fetchEvent => {
+test.addEventListener("fetch", fetchEvent => {
   fetchEvent.respondWith(
     caches.match(fetchEvent.request).then(res => {
       return res || fetch(fetchEvent.request);
