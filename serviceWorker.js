@@ -7,7 +7,7 @@ const assets = [
   "/images/logo.jpg"
 ];
 
-
+const test =document.getElementById("install-id");
 
 self.addEventListener("install", installEvent => {
   installEvent.waitUntil(
@@ -24,4 +24,3 @@ self.addEventListener("fetch", fetchEvent => {
     })
   );
 });
-
