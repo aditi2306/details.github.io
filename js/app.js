@@ -6,6 +6,12 @@ const coffees = [
   }
 ];
 
+let deferredPrompt;
+window.addEventListener('beforeinstallprompt', (e) => {
+    deferredPrompt = e;
+});
+const installApp = document.getElementById('install-id');
+
 const showCoffees = () => {
   let output = "";
   coffees.forEach(
@@ -20,6 +26,16 @@ const showCoffees = () => {
   );
   container.innerHTML = output;
 };
+
+installApp.addEventListener('click', async () => {
+    if (deferredPrompt !== null) {
+        deferredPrompt.prompt();
+        const { outcome } = await deferredPrompt.userChoice;
+        if (outcome === 'accepted') {
+            deferredPrompt = null;
+        }
+    }
+});
 
 document.addEventListener("DOMContentLoaded", showCoffees);
 
