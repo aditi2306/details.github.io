@@ -6,9 +6,9 @@ const coffees = [
   }
 ];
 
-let deferredPrompt;
 window.addEventListener('beforeinstallprompt', (e) => {
-    deferredPrompt = e;
+  $('.install-app-btn-container').show();
+  deferredPrompt = e;
 });
 const installApp = document.getElementById('install-id');
 
