@@ -23,19 +23,19 @@ const showCoffees = () => {
 };
 
 let deferredPrompt;
-window.addEventListener('beforeinstallprompt', (e) => {
-  $('.install-app-btn-container').show();
-  deferredPrompt = e;
-});
 
+window.addEventListener('beforeinstallprompt', (e) => {
+  e.preventDefault();
+  deferredPrompt = e;
+  showInstallPromotion();
+  console.log(`'beforeinstallprompt' event was fired.`);
+});
 installApp.addEventListener('click', async () => {
-    if (deferredPrompt !== null) {
-        deferredPrompt.prompt();
-        const { outcome } = await deferredPrompt.userChoice;
-        if (outcome === 'accepted') {
-            deferredPrompt = null;
-        }
-    }
+  hideInstallPromotion();
+  deferredPrompt.prompt();
+  const { outcome } = await deferredPrompt.userChoice;
+  console.log(`User response to the install prompt: ${outcome}`);
+  deferredPrompt = null;
 });
 
 document.addEventListener("DOMContentLoaded", showCoffees);
