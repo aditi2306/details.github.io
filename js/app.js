@@ -31,7 +31,6 @@ window.addEventListener('beforeinstallprompt', (e) => {
   console.log(`'beforeinstallprompt' event was fired.`);
 });
 installApp.addEventListener('click', async () => {
- // hideInstallPromotion();
   deferredPrompt.prompt();
   const { outcome } = await deferredPrompt.userChoice;
   console.log(`User response to the install prompt: ${outcome}`);
