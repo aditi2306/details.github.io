@@ -14,9 +14,9 @@ const assets = [
   "/images/coffee8.jpg",
   "/images/coffee9.jpg"
 ];
-const test =document.getElementById("install-id");
 
-test.addEventListener("install", installEvent => {
+
+self.addEventListener("install", installEvent => {
   installEvent.waitUntil(
     caches.open(staticDevCoffee).then(cache => {
       cache.addAll(assets);
