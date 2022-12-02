@@ -1,17 +1,24 @@
-const staticDev = "dev-employee-pwc-site-v1";
+const staticDevCoffee = "dev-coffee-site-v1";
 const assets = [
   "/",
   "/index.html",
   "/css/style.css",
   "/js/app.js",
-  "/images/logo.jpg"
+  "/images/coffee1.jpg",
+  "/images/coffee2.jpg",
+  "/images/coffee3.jpg",
+  "/images/coffee4.jpg",
+  "/images/coffee5.jpg",
+  "/images/coffee6.jpg",
+  "/images/coffee7.jpg",
+  "/images/coffee8.jpg",
+  "/images/coffee9.jpg"
 ];
-
 const test =document.getElementById("install-id");
 
-self.addEventListener("install", installEvent => {
+test.addEventListener("install", installEvent => {
   installEvent.waitUntil(
-    caches.open(staticDev).then(cache => {
+    caches.open(staticDevCoffee).then(cache => {
       cache.addAll(assets);
     })
   );

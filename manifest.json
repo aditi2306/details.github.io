@@ -1,6 +1,6 @@
 {
-  "name": "Details",
-  "short_name": "EmployeeDetails",
+  "name": "Dev'Coffee",
+  "short_name": "DevCoffee",
   "start_url": "index.html",
   "display": "standalone",
   "background_color": "#fdfdfd",
