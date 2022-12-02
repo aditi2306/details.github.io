@@ -1,13 +1,42 @@
 const container = document.querySelector(".container");
 const coffees = [
   {
-    name: "",
-    image: "images/logo.png"
+    name: "Perspiciatis",
+    image: "images/coffee1.jpg"
+  },
+  {
+    name: "Voluptatem",
+    image: "images/coffee2.jpg"
+  },
+  {
+    name: "Explicabo",
+    image: "images/coffee3.jpg"
+  },
+  {
+    name: "Rchitecto",
+    image: "images/coffee4.jpg"
+  },
+  {
+    name: " Beatae",
+    image: "images/coffee5.jpg"
+  },
+  {
+    name: " Vitae",
+    image: "images/coffee6.jpg"
+  },
+  {
+    name: "Inventore",
+    image: "images/coffee7.jpg"
+  },
+  {
+    name: "Veritatis",
+    image: "images/coffee8.jpg"
+  },
+  {
+    name: "Accusantium",
+    image: "images/coffee9.jpg"
   }
 ];
-
-const installApp = document.getElementById('install-id');
-
 const showCoffees = () => {
   let output = "";
   coffees.forEach(
@@ -16,26 +45,12 @@ const showCoffees = () => {
               <div class="card">
                 <img class="card--avatar" src=${image} />
                 <h1 class="card--title">${name}</h1>
+                <a class="card--link" href="#">Taste</a>
               </div>
               `)
   );
   container.innerHTML = output;
 };
-
-let deferredPrompt;
-
-window.addEventListener('beforeinstallprompt', (e) => {
-  e.preventDefault();
-  deferredPrompt = e;
-  showInstallPromotion();
-  console.log(`'beforeinstallprompt' event was fired.`);
-});
-installApp.addEventListener('click', async () => {
-  deferredPrompt.prompt();
-  const { outcome } = await deferredPrompt.userChoice;
-  console.log(`User response to the install prompt: ${outcome}`);
-  deferredPrompt = null;
-});
 
 document.addEventListener("DOMContentLoaded", showCoffees);
 
